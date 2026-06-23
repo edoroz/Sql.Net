@@ -1,6 +1,5 @@
 
 
-
 ----Drop schema sales
 ----Create Schema sales
 Go
@@ -197,8 +196,24 @@ Go
 Go
 
 	-- 4.- Filtering Data
-	-- DISTINCT		To remove duplicate values, NULLS are the same value 
+-- DISTINCT		To remove duplicate values, NULLS are the same value 
 
---Select Distinct city, state
---From sales.customers
---Order By city
+	--Select Distinct city, state
+	--From sales.customers
+	--Order By city
+
+-- DISTINCT and NULL
+	--Select Distinct phone		Keeps one Null removing others
+	--From Sales.customers
+	--Order By phone
+
+-- DISTINCT vs. GROUP BY
+	Select city As 'Ciudad', [state] As 'Estado', zip_code As 'Código Postal'
+	From sales.customers
+	Group By city, [state], zip_code
+	Order By city, [state], zip_code
+
+	Select Distinct city, [state], zip_code
+	From sales.customers
+	Order By city, state
+Go	-- Should use Group By when applying an aggregate function
