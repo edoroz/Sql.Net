@@ -231,3 +231,20 @@ Go	-- Should use Group By when applying an aggregate function
 	--Select * From production.products
 	--Where product_name Like '%[6-8]' --'[^RST]%' --'E%6' --'_i%'
 Go
+
+-- ALIAS		A temporay name during query execution
+	--Select c.last_name + ' ' + c.first_name [Nombre Cliente]	-- As Full 'Full Name'
+	--From sales.customers c							-- Table Shorthand, on join or same name
+	--Order By [Nombre Cliente]
+
+	Select	c.customer_id,
+			c.first_name,
+			c.last_name,
+			o.order_id
+	From sales.customers c
+
+	INNER JOIN sales.orders o On o.customer_id = c.customer_id;
+Go
+
+
+
