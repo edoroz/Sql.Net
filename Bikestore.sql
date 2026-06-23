@@ -208,12 +208,26 @@ Go
 	--Order By phone
 
 -- DISTINCT vs. GROUP BY
-	Select city As 'Ciudad', [state] As 'Estado', zip_code As 'Código Postal'
-	From sales.customers
-	Group By city, [state], zip_code
-	Order By city, [state], zip_code
+	--Select city As 'Ciudad', [state] As 'Estado', zip_code As 'Código Postal'
+	--From sales.customers
+	--Group By city, [state], zip_code
+	--Order By city, [state], zip_code
 
-	Select Distinct city, [state], zip_code
-	From sales.customers
-	Order By city, state
+	--Select Distinct city, [state], zip_code
+	--From sales.customers
+	--Order By city, state
 Go	-- Should use Group By when applying an aggregate function
+
+-- WHERE	When may only need to process a subset of rows 
+	--Select product_id, product_name, category_id, model_year, list_price 
+	--From production.products
+	--Where category_id = 1 And model_year in (2016,2017) And list_price > 100
+	--Order By product_id, model_year, list_price Desc;
+
+	--Select * From production.products
+	--Where list_price Between 1599 And 1999.99
+	--Order By list_price
+
+	--Select * From production.products
+	--Where product_name Like '%[6-8]' --'[^RST]%' --'E%6' --'_i%'
+Go
