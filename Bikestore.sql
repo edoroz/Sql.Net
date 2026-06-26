@@ -237,14 +237,93 @@ Go
 	--From sales.customers c							-- Table Shorthand, on join or same name
 	--Order By [Nombre Cliente]
 
-	Select	c.customer_id,
-			c.first_name,
-			c.last_name,
-			o.order_id
-	From sales.customers c
+	--Select	c.customer_id,
+	--		c.first_name,
+	--		c.last_name,
+	--		o.order_id
+	--From sales.customers c
 
-	INNER JOIN sales.orders o On o.customer_id = c.customer_id;
+	--INNER JOIN sales.orders o On o.customer_id = c.customer_id;
+
 Go
+-- JOIN		Combine data from two tables, use data from one table to select rows in another table.
+	--Create Schema hr;
+	
+	--Create Table hr.candidates(
+	--	id	Int		Primary Key Identity, 
+	--	fullname	Varchar(50) Not Null
+	--);
+
+	--Create Table hr. employees(
+	--	id Int		Primary Key Identity,
+	--	fullname	VarChar(50) Not Null
+	--);
+
+	--Insert Into hr.candidates(fullname)
+	--values	('john Doe'),	('Lily Bush'), 	('Peter Druker'),	('Jane Doe');
+
+	--Insert Into hr.employees(fullname)
+	--Values ('John Doe'), ('Jane Doe'), ('Michael Scott'), ('Jack Sparrow')
+Go
+
+-- INNER JOIN	Produce Rows from the left table and matching rows from the right table. Can't result Nulls
+	--Select 
+	--	c.id		[# Cand],
+	--	c.fullname	[Candidato],
+	--	e.id		[# Empl],
+	--	e.fullname	[Empleado]
+	--From hr.candidates c
+	--	Inner Join hr.employees e
+	--	On e.fullname = c.fullname
+Go
+
+-- LEFT JOIN	Return all rows from left table and matching rows from the righ table. Could have Nulls
+	--Select 
+	--	c.id		'# Cand.	',				
+	--	c.fullname	'Candidato	',
+	--	e.id		'# Empl.	',			
+	--	e.fullname	'Empleado	'
+	--From hr.candidates c
+	--	Left Join hr.employees e				-- RIGHT JOIN is the reverse version
+	--	On e.fullname = c.fullname
+	-- Where e.id is null;		--	Return only the left table 
+Go
+
+-- INNER JOIN	Using Bike Store Database
+	--Select 
+	--	p.product_name,
+	--	p.list_price,
+	--	p.category_id
+	--From production.products p
+	--Order By p.product_name Desc		-- Category Id return only numbers, we need names also.
+
+	--Select -- *
+	--	p.product_name	As 'Producto',
+	--	c.category_name As 'Categoría',
+	--	p.list_price	As 'Precio'
+	--From production.products p
+	--	Inner Join production.categories c On c.category_id = p.category_id 
+	--Order By 
+	--	'Producto' Desc
+
+	Select 
+		p.product_id	'Número de Producto',
+		p.product_name	'Producto',
+		b.brand_name	'Marca',
+		c.category_name	'Cateoría',
+		p.model_year	'Año',
+		p.list_price	'Precio'
+	From production.products p
+		Join production.categories	c On c.category_id = p.category_id
+		Join production.brands		b On b.brand_id = p.brand_id
+	Order By
+		'Producto' Desc
+		
+
+
+
+
+
 
 
 
