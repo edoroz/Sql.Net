@@ -306,22 +306,60 @@ Go
 	--Order By 
 	--	'Producto' Desc
 
-	Select 
-		p.product_id	'Número de Producto',
-		p.product_name	'Producto',
-		b.brand_name	'Marca',
-		c.category_name	'Cateoría',
-		p.model_year	'Año',
-		p.list_price	'Precio'
-	From production.products p
-		Join production.categories	c On c.category_id = p.category_id
-		Join production.brands		b On b.brand_id = p.brand_id
-	Order By
-		'Producto' Desc
-		
+	--Select 
+	--	p.product_id	'Número de Producto',
+	--	p.product_name	'Producto',
+	--	b.brand_name	'Marca',
+	--	c.category_name	'Cateoría',
+	--	p.model_year	'Año',
+	--	p.list_price	'Precio'
+	--From production.products p
+	--	Join production.categories	c On c.category_id = p.category_id
+	--	Join production.brands		b On b.brand_id = p.brand_id
+	--Order By
+	--	'Producto' 
+Go
 
+--Select 
+--	p.product_id		'# Id',
+--	p.product_name		'Bicicleta',
+--	c.category_name		'Categoría',
+--	b.brand_name		'Marca',
+--	p.model_year		'Modelo',
+--	p.list_price		'Precio'
+--From production.products	p
+--Join production.brands		b On b.brand_id		= p.brand_id
+--Join production.categories	c On c.category_id	= p.category_id
+--Order By Bicicleta
+Go
 
+-- LEFT JOIN	Using Bike Store Database
+--Select 
+--	o.item_id		'#',
+--	p.product_id	'Código',
+--	p.product_name	'Bicicleta',
+-- -- o.order_id		'Orden de Compra',
+--	o.list_price	'Precio',
+--	o.quantity		'Cantidad',
+--	o.list_price * 
+--	o.quantity		'Total'
+--From production.products	p
+--Left Join sales.order_items o On o.product_id = p.product_id
+--Where order_id = 16	-- Is Not NULL	-- Need only products with no Order, not selling actually. Can not use alias here.
+----Order By [Orden de Compra] 	-- Got All Null first, using alias.
+Go
 
+Select 
+	p.product_name,
+	o.order_id
+	-- i.item_id,
+	-- o.order_date
+	-- o.customer_id
+From production.products	p 
+Left Join sales.order_items i On i.product_id = p.product_id
+Left join sales.orders		o On o.order_id = i.order_id		And o.order_id =100
+--Where o.order_id = 100 --Is Not Null
+Order By o.order_id Desc
 
 
 
