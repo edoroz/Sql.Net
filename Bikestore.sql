@@ -364,4 +364,83 @@ Order By o.order_id Desc
 
 
 
+Select database_id, name
+From master.sys.databases
+Order by name
 
+Select * 
+From ArizonaDb.sys.schemas
+
+Use ArizonaDb; Go
+Drop Schema Abc;
+Drop Schema Bcd;
+Drop Schema Cde;
+Drop Schema Def;
+Drop Schema Efg;
+
+Create Database AlabamaDb
+Create Database AlaskaDb
+Create Database ArizonaDb
+Create Database ArkansasDb
+
+Drop Database CaliforniaDb
+Drop Database ColoradoDb
+Drop Database ConnecticutDb
+
+Drop Database DelawareDb
+Drop Database FloridaDb
+Drop Database GeorgiaDb
+Drop Database HawaiDb
+
+Drop Database IdahoDb
+Drop Database IllinoisDb
+Drop Database IndianaDb
+Drop Database IowaDb
+
+Drop Database KansasDb
+Drop Database kentuckyDb
+Drop Database LouisianaDb
+
+Drop Database MaineDb
+Drop Database MaryLandDb
+Drop Database MassachussetsDb
+Drop Database MichiganDb
+Drop Database MinesotaDb
+Drop Database MississippiDb
+Drop Database MissouriDb
+Drop Database MontanaDb
+
+Drop Database NebraskaDb
+Drop Database NevadaDb
+Drop Database NorthCarolinaDb
+Drop Database NorthDakotaDb
+
+Drop Database NewHampshireDb
+Drop Database NewJerseyDb
+Drop Database NewMexicoDb
+Drop Database NewYorkDb
+
+
+Drop Database OhioDb
+Drop Database OklahomaDb
+Drop Database OregonDb
+
+Drop Database PennsilvaniaDb;
+Drop Database RhodeIslandDb;
+Drop Database SouthCarolinaDb;
+Drop Database SouthDakotaDb;
+
+Drop Database TennesseeDb
+Drop Database TexasDb
+
+Drop Database UtahDb
+Drop Database VermontDb
+Drop Database VirginiaDb
+
+Drop Database WashingtonDb
+
+Use master;
+go
+Drop Database WestVirginiaDb
+Drop Database WisconsinDb
+Drop Database WyomingDb
