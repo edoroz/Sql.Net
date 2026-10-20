@@ -1,7 +1,15 @@
 
 
---Select * From sys.databases
---Where name Like 'A%'
+Select * From sys.databases
+Where name Like 'A%'
+
+use Master
+Go
+
+Drop Database ArkansasDb
+
+
+Create Database Arkansas
 
 --Create Schema alabama_Sch
 --Create Schema alaska_Sch
